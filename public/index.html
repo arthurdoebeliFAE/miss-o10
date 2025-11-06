@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Validador de Senha (Node.js)</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Missão 10: Teste do Validador</h1>
+
+        <label for="senha">Digite a senha para testar:</label>
+        
+        <div class="input-group">
+            <input type="text" id="senha" placeholder="Digite a senha...">
+            <button id="validarBtn">Validar</button>
+        </div>
+
+        <h2>Resultado:</h2>
+        
+        <pre id="resultado">
+(Aguardando teste...)
+        </pre>
+    </div>
+
+    <script>
+        const input = document.getElementById('senha');
+        const button = document.getElementById('validarBtn');
+        const resultadoEl = document.getElementById('resultado');
+
+        button.addEventListener('click', async () => {
+            const senhaParaTestar = input.value;
+
+            // Envia a senha para o backend no endpoint /validar-senha
+            const response = await fetch('/validar-senha', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "senha": senhaParaTestar })
+            });
+
+            // Pega a resposta do backend
+            const data = await response.json();
+            
+            // Exibe a resposta formatada na caixa <pre>
+            resultadoEl.textContent = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html>

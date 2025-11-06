@@ -1,0 +1,137 @@
+/* --- Reset e Configurações Globais --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cor verde marca-texto que vamos usar */
+:root {
+    --verde-marca-texto: #00FF00; /* Um verde-limão bem brilhante */
+    --preto-fundo: #0a0a0a;
+    --preto-cartao: #1a1a1a;
+    --cinza-input: #333;
+    --texto-no-verde: #000000;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Fundo preto */
+    background-color: var(--preto-fundo);
+    /* Cor do texto padrão (vai ser usado nos títulos) */
+    color: var(--verde-marca-texto);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- O Cartão Principal --- */
+.container {
+    /* Um cinza bem escuro, quase preto, para o "cartão" */
+    background-color: var(--preto-cartao);
+    padding: 2.5rem;
+    border-radius: 12px;
+
+    /* Trocamos a sombra por um "brilho" verde sutil */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    border: 1px solid #222; /* Uma borda sutil para definir */
+
+    max-width: 500px;
+    width: 100%;
+}
+
+/* --- Títulos --- */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--verde-marca-texto);
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    /* Linha divisória num cinza mais escuro */
+    border-top: 1px solid var(--cinza-input);
+    padding-top: 1.5rem;
+    color: var(--verde-marca-texto);
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--verde-marca-texto);
+}
+
+/* --- Grupo de Input + Botão --- */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    font-size: 1rem;
+    padding: 12px 15px;
+
+    /* Fundo cinza escuro para o input */
+    background-color: var(--cinza-input);
+    /* Texto do input será branco */
+    color: #FFFFFF;
+
+    /* Borda cinza um pouco mais clara */
+    border: 1px solid #444;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao clicar: borda e brilho verde */
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--verde-marca-texto);
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.3); 
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+
+    /* Fundo VERDE marca-texto */
+    background-color: var(--verde-marca-texto);
+    /* Texto PRETO (como você pediu) */
+    color: var(--texto-no-verde);
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Efeito de hover: um verde um pouco menos "aceso" */
+button:hover {
+    background-color: #00cc00;
+}
+
+/* --- Caixa de Resultado --- */
+pre {
+    /* Fundo preto para o resultado */
+    background-color: var(--preto-fundo); 
+    /* Texto do JSON em verde */
+    color: var(--verde-marca-texto);
+
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    line-height: 1.6;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    border: 1px solid #333;
+}
